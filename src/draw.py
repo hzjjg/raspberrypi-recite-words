@@ -4,48 +4,50 @@
 
 from PIL import Image, ImageDraw, ImageFont
 
-word = {
-    'spell': 'avenger',
-    'meaning': '复仇者',
-    'phonemes': '[/əˈven.dʒɚ/]',
-    'form': 'n.'
-}
 
-img = Image.new('1', (250, 122), 255)
-size = {
-    'w': 250,
-    'h': 122
-}
+def draw(word={}):
+    print(word)
+    img = Image.new('1', (250, 122), 255)
+    size = {
+        'w': 250,
+        'h': 122
+    }
 
-draw = ImageDraw.Draw(img)
+    draw = ImageDraw.Draw(img)
 
-# 绘制外框
-draw.line(
-    (
-        (1, 1),
-        (size['w']-1, 1),
-        (size['w']-1, size['h']-1),
-        (1, size['h']-1),
-        (1, 1)
-    ), fill=0)
+    # 绘制外框
+    draw.line(
+        (
+            (1, 1),
+            (size['w']-1, 1),
+            (size['w']-1, size['h']-1),
+            (1, size['h']-1),
+            (1, 1)
+        ), fill=0)
 
-# 单词字体
-word_font = ImageFont.truetype('arial.ttf', 28)
-# 单词释义字体
-explain_font = ImageFont.truetype('arial.ttf', 16)
-# 单词翻译中文字体
-meaning_font = ImageFont.truetype('msyh.ttc', 14)
+    # 单词字体
+    word_font = ImageFont.truetype('arial.ttf', 28)
+    # 单词释义字体
+    explain_font = ImageFont.truetype('arial.ttf', 16)
+    # 单词翻译中文字体
+    translation_font = ImageFont.truetype('msyh.ttc', 12)
 
-draw.text((8, 12), word['spell'], font=word_font, fill=0,)
-draw.line((8, 50, 150, 50), fill=0)
+    draw.text((8, 6), word['word'], font=word_font, fill=0,)
+    draw.line((8, 44, 130, 44), fill=0)
 
-x = 8
-draw.text((x, 55), word['form'], font=explain_font, fill=0,)
-x += explain_font.getsize(word['form'])[0]
+    if(word.get('collins')):
+        draw.text((140, 40), '* ' * word['collins'],
+                  font=translation_font, fill=0,)
 
-draw.text((x, 55), word['meaning'], font=meaning_font, fill=0,)
-x += meaning_font.getsize(word['meaning'])[0]
+    x = 8
+    y = 50
+    if(word.get('phonetic')):
+        phonetic = f'[{word["phonetic"]}]'
+        draw.text((x, y), phonetic, font=explain_font, fill=0,)
+        size = translation_font.getsize(word['phonetic'])
+        y += 5 + size[1]
 
-draw.text((x, 55), word['phonemes'], font=explain_font, fill=0,)
+    if(word.get('translation')):
+        draw.text((x, y), word['translation'], font=translation_font, fill=0,)
 
-img.show()
+    img.show()
