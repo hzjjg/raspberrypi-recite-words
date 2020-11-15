@@ -35,8 +35,9 @@ def draw(word={}):
     draw.text((8, 6), word['word'], font=word_font, fill=0,)
     draw.line((8, 44, 130, 44), fill=0)
 
+    # 科林斯词典分级
     if(word.get('collins')):
-        draw.text((140, 40), '* ' * word['collins'],
+        draw.text((140, 38), '* ' * word['collins'],
                   font=translation_font, fill=0,)
 
     x = 8
