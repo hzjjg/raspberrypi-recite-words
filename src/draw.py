@@ -51,4 +51,4 @@ def draw(word={}):
     if(word.get('translation')):
         draw.text((x, y), word['translation'], font=translation_font, fill=0,)
 
-    img.show()
+    return img

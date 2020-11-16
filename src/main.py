@@ -16,7 +16,7 @@ word_index = 0
 interval = 10
 
 
-def show_word():
+def start_show_words():
     global word_index
     word = query(simple_words[word_index])
 
@@ -25,9 +25,10 @@ def show_word():
     else:
         word_index = 0
 
-    draw(word)
-    t = Timer(interval, show_word)
+    img = draw(word)
+    img.show()
+    t = Timer(interval, start_show_words)
     t.start()
 
 
-show_word()
+start_show_words()

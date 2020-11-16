@@ -1,4 +1,4 @@
-from ecdict.stardict import open_dict
+from lib.ecdict.stardict import open_dict
 
 db = open_dict('dict.db')
 
