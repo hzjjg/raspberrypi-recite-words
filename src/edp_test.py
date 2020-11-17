@@ -1,10 +1,18 @@
-from draw import draw
 import lib.edp.edp as edp
+from draw import draw
+import time
+stimport logging
 
 img = draw({
     'word': 'good'
 })
 
-img.show()
+try:
+    logging.info("Demo")
 
-edp.EPD
+    epd = edp.EPD()
+    logging.info("init and Clear")
+    epd.init(epd.FULL_UPDATE)
+    epd.Clear(0xFF)
+
+    epd.display(epd.getbuffer(img))
