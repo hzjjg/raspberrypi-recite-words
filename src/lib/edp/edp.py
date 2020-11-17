@@ -27,11 +27,11 @@
 # THE SOFTWARE.
 #
 
-
-import sys
-import logging
+from . import edpconfig
 import numpy as np
-from . import epdconfig
+import logging
+import sys
+
 sys.path.append('./')
 
 # Display resolution
