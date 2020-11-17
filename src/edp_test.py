@@ -1,6 +1,6 @@
 import logging
 from draw import draw
-import lib.edp.edp as Edp
+from dep.epd.epd import Epd
 
 img = draw({
     'word': 'good'
@@ -9,7 +9,7 @@ img = draw({
 try:
     logging.info("Demo")
 
-    epd = Edp.EPD()
+    epd = Epd.EPD()
     logging.info("init and Clear")
     epd.init(epd.FULL_UPDATE)
     epd.Clear(0xFF)
@@ -20,5 +20,5 @@ except IOError as e:
 
 except KeyboardInterrupt:
     logging.info("ctrl + c:")
-    Edp.epdconfig.module_exit()
+    Epd.epdconfig.module_exit()
     exit()

@@ -3,7 +3,7 @@
 from PIL import Image, ImageDraw, ImageFont
 import traceback
 import time
-from edp import epd2in13_V2
+from epd import epd2in13_V2
 import logging
 import sys
 import os

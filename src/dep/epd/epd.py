@@ -27,7 +27,7 @@
 # THE SOFTWARE.
 #
 
-from . import edpconfig
+from epdconfig import epdconfig
 import numpy as np
 import logging
 import sys
