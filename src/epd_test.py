@@ -1,6 +1,6 @@
 import logging
 from draw import draw
-from dep.epd.epd import Epd
+from dep.epd import epd as Epd
 
 img = draw({
     'word': 'good'
@@ -11,7 +11,7 @@ try:
 
     epd = Epd.EPD()
     logging.info("init and Clear")
-    epd.init(epd.FULL_UPDATE)
+    epd.init(epd.lut_full_update)
     epd.Clear(0xFF)
 
     epd.display(epd.getbuffer(img))

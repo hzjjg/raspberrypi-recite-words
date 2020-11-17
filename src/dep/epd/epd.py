@@ -27,12 +27,10 @@
 # THE SOFTWARE.
 #
 
-from epdconfig import epdconfig
+from . import epdconfig
 import numpy as np
 import logging
 import sys
-
-sys.path.append('./')
 
 # Display resolution
 EPD_WIDTH = 122
