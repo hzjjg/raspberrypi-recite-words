@@ -3,6 +3,13 @@
 # https://pillow.readthedocs.io/en/stable/reference/index.html
 
 from PIL import Image, ImageDraw, ImageFont
+import os
+
+
+fontdir = os.path.join(os.path.dirname(
+    os.path.dirname(os.path.realpath(__file__))), 'font')
+
+print(fontdir)
 
 
 def draw(word={}):
@@ -27,14 +34,12 @@ def draw(word={}):
             ), fill=0)
 
     # 单词字体
-    # word_font = ImageFont.truetype('arial.ttf', 28)
-    word_font = ImageFont.truetype('FreeSerif.ttf', 28)
+    word_font = ImageFont.truetype(os.path.join(fontdir, 'en_font.ttf'), 28)
     # 单词释义字体
-    # explain_font = ImageFont.truetype('arial.ttf', 16)
-    explain_font = ImageFont.truetype('FreeSerif.ttf', 16)
+    explain_font = ImageFont.truetype(os.path.join(fontdir, 'en_font.ttf'), 16)
     # 单词翻译中文字体
-    # translation_font = ImageFont.truetype('msyh.ttc', 12)
-    translation_font = ImageFont.truetype('MSYH.ttc', 12)
+    translation_font = ImageFont.truetype(
+        os.path.join(fontdir, 'zh_font.ttc'), 12)
 
     draw.text((8, 6), word['word'], font=word_font, fill=0,)
     draw.line((8, 44, 130, 44), fill=0)
