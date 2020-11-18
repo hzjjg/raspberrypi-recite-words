@@ -4,8 +4,6 @@ from PIL import Image
 from draw import draw
 from dict import query
 from dep.epd import epd as Epd
-from dict import query
-from draw import draw
 import random
 from threading import Timer
 
