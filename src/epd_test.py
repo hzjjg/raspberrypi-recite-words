@@ -1,10 +1,12 @@
 import logging
+
+from PIL import Image
 from draw import draw
+from dict import query
 from dep.epd import epd as Epd
 
-img = draw({
-    'word': 'good'
-})
+img = draw(query('good'))
+img = img.transpose(Image.ROTATE_270)
 
 try:
     logging.info("Demo")
