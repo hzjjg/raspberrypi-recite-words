@@ -16,14 +16,15 @@ def draw(word={}):
     draw = ImageDraw.Draw(img)
 
     # 绘制外框
-    draw.line(
-        (
-            (1, 1),
-            (size['w']-1, 1),
-            (size['w']-1, size['h']-1),
-            (1, size['h']-1),
-            (1, 1)
-        ), fill=0)
+    if(False):
+        draw.line(
+            (
+                (1, 1),
+                (size['w']-1, 1),
+                (size['w']-1, size['h']-1),
+                (1, size['h']-1),
+                (1, 1)
+            ), fill=0)
 
     # 单词字体
     # word_font = ImageFont.truetype('arial.ttf', 28)
@@ -33,7 +34,7 @@ def draw(word={}):
     explain_font = ImageFont.truetype('FreeSerif.ttf', 16)
     # 单词翻译中文字体
     # translation_font = ImageFont.truetype('msyh.ttc', 12)
-    translation_font = ImageFont.truetype('FreeSerif.ttf', 12)
+    translation_font = ImageFont.truetype('MSYH.ttc', 12)
 
     draw.text((8, 6), word['word'], font=word_font, fill=0,)
     draw.line((8, 44, 130, 44), fill=0)
