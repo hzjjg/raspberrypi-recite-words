@@ -6,7 +6,7 @@ from dict import query
 from dep.epd import epd as Epd
 
 img = draw(query('good'))
-img = img.transpose(Image.ROTATE_270)
+img = img.transpose(Image.ROTATE_180)
 
 try:
     logging.info("Demo")
