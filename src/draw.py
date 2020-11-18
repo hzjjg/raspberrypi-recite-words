@@ -26,11 +26,14 @@ def draw(word={}):
         ), fill=0)
 
     # 单词字体
-    word_font = ImageFont.truetype('arial.ttf', 28)
+    # word_font = ImageFont.truetype('arial.ttf', 28)
+    word_font = ImageFont.truetype('FreeSerif.ttf', 28)
     # 单词释义字体
-    explain_font = ImageFont.truetype('arial.ttf', 16)
+    # explain_font = ImageFont.truetype('arial.ttf', 16)
+    explain_font = ImageFont.truetype('FreeSerif.ttf', 16)
     # 单词翻译中文字体
-    translation_font = ImageFont.truetype('msyh.ttc', 12)
+    # translation_font = ImageFont.truetype('msyh.ttc', 12)
+    translation_font = ImageFont.truetype('FreeSerif.ttc', 12)
 
     draw.text((8, 6), word['word'], font=word_font, fill=0,)
     draw.line((8, 44, 130, 44), fill=0)
@@ -38,7 +41,7 @@ def draw(word={}):
     # 科林斯词典分级
     if(word.get('collins')):
         draw.text((140, 38), '* ' * word['collins'],
-                  font=translation_font, fill=0,)
+                  font=translation_font, fill=0,):
 
     x = 8
     y = 50

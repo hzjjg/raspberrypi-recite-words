@@ -11,7 +11,7 @@ try:
 
     epd = Epd.EPD()
     logging.info("init and Clear")
-    epd.init(epd.lut_full_update)
+    epd.init(epd.FULL_UPDATE)
     epd.Clear(0xFF)
 
     epd.display(epd.getbuffer(img))
