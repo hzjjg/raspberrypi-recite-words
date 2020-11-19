@@ -7,17 +7,46 @@ from dep.epd import epd as Epd
 import random
 from threading import Timer
 
+# 要背的单词、词组
 simple_words = [
-    'good',
-    'police',
-    'nice',
-    'set',
-    'right'
+    'absorb',
+    'crawl',
+    'shrug',
+    'maximum',
+    'layman',
+    'obstruct',
+    'summit',
+    'prescribe',
+    'sufficient',
+    'challenge',
+    'abuse',
+    'ambition',
+    'dub',
+    'lace',
+    'psychiatry',
+    'shock',
+    'ceremony',
+    'scrutiny',
+    'sovereign',
+    'fascinate',
+    'sprawl',
+    'pant',
+    'sow',
+    'privilege',
+    'cork',
+    'vacant',
+    'accumulate',
+    'slap',
+    'civic',
+    'frugal',
+    'navigable',
 ]
 
-random.shuffle(simple_words)
+# 单词切换间隔时间 / 秒
+interval = 60
+
 word_index = 0
-interval = 10
+random.shuffle(simple_words)
 
 
 def start_show_words():
@@ -51,5 +80,7 @@ try:
     epd = Epd.EPD()
     epd.init(epd.FULL_UPDATE)
     epd.Clear(0xFF)
+except IOError as e:
+    logging.info(e)
 
 start_show_words()

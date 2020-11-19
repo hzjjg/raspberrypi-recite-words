@@ -1,3 +1,5 @@
+# 测试电子墨水屏的显示
+
 import logging
 
 from PIL import Image

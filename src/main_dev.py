@@ -1,3 +1,5 @@
+# 由于开发环境没有比如gpio这种硬件，便于开发时调试程序
+
 from dict import query
 from draw import draw
 import random

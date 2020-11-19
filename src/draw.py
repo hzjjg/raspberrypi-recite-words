@@ -9,11 +9,8 @@ import os
 fontdir = os.path.join(os.path.dirname(
     os.path.dirname(os.path.realpath(__file__))), 'font')
 
-print(fontdir)
-
 
 def draw(word={}):
-    print(word)
     img = Image.new('1', (250, 122), 255)
     size = {
         'w': 250,
@@ -22,26 +19,15 @@ def draw(word={}):
 
     draw = ImageDraw.Draw(img)
 
-    # 绘制外框
-    if(False):
-        draw.line(
-            (
-                (1, 1),
-                (size['w']-1, 1),
-                (size['w']-1, size['h']-1),
-                (1, size['h']-1),
-                (1, 1)
-            ), fill=0)
-
     # 单词字体
-    word_font = ImageFont.truetype(os.path.join(fontdir, 'en_font.ttf'), 28)
+    word_font = ImageFont.truetype(os.path.join(fontdir, 'en_font.ttf'), 36)
     # 单词释义字体
-    explain_font = ImageFont.truetype(os.path.join(fontdir, 'en_font.ttf'), 16)
+    explain_font = ImageFont.truetype(os.path.join(fontdir, 'en_font.ttf'), 18)
     # 单词翻译中文字体
     translation_font = ImageFont.truetype(
-        os.path.join(fontdir, 'zh_font.ttc'), 12)
+        os.path.join(fontdir, 'zh_font.ttc'), 14)
 
-    draw.text((8, 6), word['word'], font=word_font, fill=0,)
+    draw.text((8, 0), word['word'], font=word_font, fill=0,)
     draw.line((8, 44, 130, 44), fill=0)
 
     # 科林斯词典分级
@@ -50,7 +36,7 @@ def draw(word={}):
                   font=translation_font, fill=0,)
 
     x = 8
-    y = 50
+    y = 44
     if(word.get('phonetic')):
         phonetic = f'[{word["phonetic"]}]'
         draw.text((x, y), phonetic, font=explain_font, fill=0,)
