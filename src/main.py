@@ -33,13 +33,7 @@ def start_show_words():
     img = img.transpose(Image.ROTATE_180)
 
     try:
-        logging.info("Demo")
-
         epd = Epd.EPD()
-        logging.info("init and Clear")
-        epd.init(epd.FULL_UPDATE)
-        epd.Clear(0xFF)
-
         epd.display(epd.getbuffer(img))
     except IOError as e:
         logging.info(e)
@@ -52,5 +46,10 @@ def start_show_words():
     t = Timer(interval, start_show_words)
     t.start()
 
+
+try:
+    epd = Epd.EPD()
+    epd.init(epd.FULL_UPDATE)
+    epd.Clear(0xFF)
 
 start_show_words()
