@@ -1,11 +1,13 @@
+import sys
 import logging
-
 from PIL import Image
-from draw import draw
-from dict import query
-from dep.epd import epd as Epd
 import random
 from threading import Timer
+
+from src.draw import draw
+from src.dict import query
+from lib.epd import epd as Epd
+
 
 # 要背的单词、词组
 simple_words = [

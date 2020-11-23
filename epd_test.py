@@ -1,11 +1,10 @@
-# 测试电子墨水屏的显示
-
+# 用于在树莓派上测试电子墨水屏与单词的显示
 import logging
-
+import sys
 from PIL import Image
-from draw import draw
-from dict import query
-from dep.epd import epd as Epd
+from src.draw import draw
+from src.dict import query
+from lib.epd import epd as Epd
 
 img = draw(query('good'))
 img = img.transpose(Image.ROTATE_180)

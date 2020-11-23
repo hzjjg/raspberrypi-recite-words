@@ -6,8 +6,11 @@ from PIL import Image, ImageDraw, ImageFont
 import os
 
 
-fontdir = os.path.join(os.path.dirname(
-    os.path.dirname(os.path.realpath(__file__))), 'font')
+fontdir = os.path.join(
+    os.path.dirname(__file__),
+    '../'
+    'font'
+)
 
 
 def draw(word={}):

@@ -1,4 +1,4 @@
-from src.dep.ecdict.stardict import convert_dict
+from lib.ecdict.stardict import convert_dict
 
 
 def init_db():
