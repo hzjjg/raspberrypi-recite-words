@@ -47,6 +47,10 @@ def stripword(word):
 # ----------------------------------------------------------------------
 class StarDict (object):
 
+    @property
+    def conn(self):
+        return self.__conn
+
     def __init__(self, filename, verbose=False):
         self.__dbname = filename
         if filename != ':memory:':
@@ -102,7 +106,7 @@ class StarDict (object):
         return True
 
     # 数据库记录转化为字典
-    def __record2obj(self, record):
+    def record2obj(self, record):
         if record is None:
             return None
         word = {}
@@ -143,7 +147,7 @@ class StarDict (object):
         else:
             return None
         record = c.fetchone()
-        return self.__record2obj(record)
+        return self.record2obj(record)
 
     # 查询单词匹配
     def match(self, word, limit=10, strip=False):
@@ -181,7 +185,7 @@ class StarDict (object):
         c = self.__conn.cursor()
         c.execute(sql, tuple(keys))
         for row in c:
-            obj = self.__record2obj(row)
+            obj = self.record2obj(row)
             query_word[obj['word'].lower()] = obj
             query_id[obj['id']] = obj
         results = []

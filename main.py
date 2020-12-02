@@ -1,61 +1,25 @@
 import sys
 import logging
 from PIL import Image
-import random
 from threading import Timer
 
 from src.draw import draw
-from src.dict import query
+from src.dict import get_random_collins_words
 from lib.epd import epd as Epd
 
-
-# 要背的单词、词组
-simple_words = [
-    'absorb',
-    'crawl',
-    'shrug',
-    'maximum',
-    'layman',
-    'obstruct',
-    'summit',
-    'prescribe',
-    'sufficient',
-    'challenge',
-    'abuse',
-    'ambition',
-    'dub',
-    'lace',
-    'psychiatry',
-    'shock',
-    'ceremony',
-    'scrutiny',
-    'sovereign',
-    'fascinate',
-    'sprawl',
-    'pant',
-    'sow',
-    'privilege',
-    'cork',
-    'vacant',
-    'accumulate',
-    'slap',
-    'civic',
-    'frugal',
-    'navigable',
-]
+words = get_random_collins_words(1, 30)
 
 # 单词切换间隔时间 / 秒
 interval = 60
 
 word_index = 0
-random.shuffle(simple_words)
 
 
 def start_show_words():
     global word_index
-    word = query(simple_words[word_index])
+    word = words[word_index]
 
-    if(word_index + 1 < len(simple_words)):
+    if(word_index + 1 < len(words)):
         word_index += 1
     else:
         word_index = 0
