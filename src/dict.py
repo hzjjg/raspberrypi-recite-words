@@ -26,5 +26,4 @@ def get_random_collins_words(min_star, count):
     result = []
     for record in records:
         result.append(db.record2obj(record))
-    print(result)
     return result
